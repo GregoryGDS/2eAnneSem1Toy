@@ -12,6 +12,8 @@ public class VacuumController : MonoBehaviour
     public Transform _mouth;
     public GameObject _allBody;
 
+    public bool _spitOn;
+
     private void Start()
     {
         
@@ -20,15 +22,26 @@ public class VacuumController : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKey(KeyCode.Mouse0)){
+        if (Input.GetKey(KeyCode.Mouse0) && !Input.GetKey(KeyCode.Mouse1))
+        {
 
             _vacuumOn = true;
             //Debug.Log("Aspire");
-
         }
         else
         {
             _vacuumOn = false;
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1))
+        {
+
+            _spitOn = true;
+            //Debug.Log("Aspire");
+        }
+        else
+        {
+            _spitOn = false;
         }
 
         if (Input.GetKey(KeyCode.Mouse1)){
@@ -36,8 +49,10 @@ public class VacuumController : MonoBehaviour
             //Debug.Log("Expire");
         }
 
+        //_mouth.transform.rotation = Quaternion.Euler(GameManager.instance._cameraScript._orientation.forward);
 
-        if (_vacuumOn)
+        
+        if (_vacuumOn || _spitOn)
         {
             _mouth.transform.localScale = new Vector3(0.70f, 0.65f, 0.1f);
         }
