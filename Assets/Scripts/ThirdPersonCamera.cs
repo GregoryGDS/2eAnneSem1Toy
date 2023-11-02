@@ -101,7 +101,7 @@ public class ThirdPersonCamera : MonoBehaviour
                 
                 if (GameManager.instance._moveScript._moveType == CameraType.FreeSpit)
                 {
-                    _camLook.m_Orbits[_index].m_Height = -1f;
+                    _camLook.m_Orbits[_index].m_Height = ((_player.localScale.z * 0.6f) * -1f )- 1f;
                 }
                 else
                 {
