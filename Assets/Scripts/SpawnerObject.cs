@@ -17,7 +17,6 @@ public class SpawnerObject : MonoBehaviour
     public void SpawRand()
     {
         int _choice = Random.Range(0, _listObject.Length);
-        Debug.Log(_choice);
 
         Instantiate(_listObject[_choice], transform.position + new Vector3(Random.Range(-_x, _x), Random.Range(-_y, _y), Random.Range(-_z, _z)), _listObject[_choice].transform.rotation);
 

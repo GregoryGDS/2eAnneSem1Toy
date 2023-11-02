@@ -6,11 +6,13 @@ public class MouthController : MonoBehaviour
 {
     public GameObject _allBody;
 
+    //comment mettre ce script dans le parent ? vu qu'il y a a juste le trigger ? 
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("hello");
-;    }
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,11 +22,9 @@ public class MouthController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("on trigger");
 
-        if (other.CompareTag("object"))
+        if (other.CompareTag("object") && GameManager.instance._vacuumScript._vacuumOn)
         {
-            Debug.Log("on if");
 
             if (_allBody.GetComponent<Rigidbody>().mass >= other.GetComponent<Rigidbody>().mass)
             {
@@ -44,6 +44,13 @@ public class MouthController : MonoBehaviour
     {
         _allBody.GetComponent<Rigidbody>().mass += _mass;
         _allBody.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+
+    }
+
+    public void Spit(float _lostMass)
+    {
+        _allBody.GetComponent<Rigidbody>().mass -= _lostMass;
+        _allBody.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
 
     }
 }
