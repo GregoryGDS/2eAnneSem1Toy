@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1870758851103252218}
   - component: {fileID: 2025311101507948058}
   - component: {fileID: 8574506955394178574}
+  - component: {fileID: 3695279203860164222}
   m_Layer: 0
   m_Name: Cube_average
   m_TagString: object
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 68ab77b5b4d0de64da4839947677dead, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,3 +134,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3695279203860164222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980116946989262750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c0d5ac4595898468ecf44d45663361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fragment: {fileID: 7747538323272493944, guid: 310636e42ec37be4296a58c89e8c5220, type: 3}
+  _group: {fileID: 0}

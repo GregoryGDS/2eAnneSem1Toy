@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public ThirdPersonCamera _cameraScript;
     public VacuumController _vacuumScript;
     public MoveController _moveScript;
-
+    public MouthController _mouthScript;
 
     void Start()
     {
@@ -40,5 +40,4 @@ public class GameManager : MonoBehaviour
     {
         _current -= 1;
     }
-
 }

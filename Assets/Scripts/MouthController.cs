@@ -51,6 +51,5 @@ public class MouthController : MonoBehaviour
     {
         _allBody.GetComponent<Rigidbody>().mass -= _lostMass;
         _allBody.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
-
     }
 }

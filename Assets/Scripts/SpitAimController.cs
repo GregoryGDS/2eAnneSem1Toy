@@ -8,38 +8,62 @@ public class SpitAimController : MonoBehaviour
     public Transform _mouth;
     public blobMissile _missile;
 
+    private Rigidbody _rb;
+    public float _cooldown;
+    [SerializeField]
+    private float _time;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _rb = transform.GetComponent<Rigidbody>();
+        _time = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse1))
+        if(_time <= 0f)
         {
-            GameManager.instance._moveScript._moveType = CameraType.FreeSpit;
-
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse1))
             {
-                Fire(_missile);
+                GameManager.instance._moveScript._moveType = CameraType.FreeSpit;
+
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    Fire(_missile);
+                    _time = _cooldown;
+                }
+
+            }
+            else
+            {
+               GameManager.instance._moveScript._moveType = CameraType.TowardsSwallow;
+               // desactive le suivi de cam de visée
             }
 
+            
         }
         else
         {
-            GameManager.instance._moveScript._moveType = CameraType.TowardsSwallow;
+            _time -= Time.deltaTime;
         }
+
     }
 
 
     void Fire(blobMissile _obj)
     {
-        blobMissile _atSpawn = Instantiate(_obj, _mouth.position, _mouth.rotation);
+        if (_rb.mass > 1f && transform.localScale.x > 1)
+        {
+            blobMissile _atSpawn = Instantiate(_obj, _mouth.position, _mouth.rotation);
 
-        _atSpawn._damage = transform.GetComponent<Rigidbody>().mass/10;
-        //Debug.Log(transform.GetComponent<Rigidbody>().mass);
+            _atSpawn._damage = _rb.mass / 10; // script placé sur Player
+            //Debug.Log(transform.GetComponent<Rigidbody>().mass);
+
+            GameManager.instance._mouthScript.Spit(0.2f);
+        }
+
 
     }
 }

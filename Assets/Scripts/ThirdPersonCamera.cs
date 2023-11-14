@@ -87,13 +87,13 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             case 0:
                 //Debug.Log(_index + " top \n" + _camLook.m_Orbits[0].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 5.5f;
-                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 4f;
+                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 6f;
+                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 4.5f;
                 break;
             case 1:
                 //Debug.Log(_index + " middle \n" + _camLook.m_Orbits[1].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 2f;
-                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 2f;
+                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 3f;
+                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 3f;
                 break;
             case 2:
                 //Debug.Log(_index + " bottom \n" + _camLook.m_Orbits[2].m_Radius);
@@ -101,7 +101,7 @@ public class ThirdPersonCamera : MonoBehaviour
                 
                 if (GameManager.instance._moveScript._moveType == CameraType.FreeSpit)
                 {
-                    _camLook.m_Orbits[_index].m_Height = -1f;
+                    _camLook.m_Orbits[_index].m_Height = ((_player.localScale.z * 0.6f) * -1f )- 1f;
                 }
                 else
                 {
