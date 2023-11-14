@@ -7,7 +7,8 @@ public class SpitAimController : MonoBehaviour
 
     public Transform _mouth;
     public blobMissile _missile;
-
+    public GameObject _missileGrab;
+    
     private Rigidbody _rb;
     public float _cooldown;
     [SerializeField]
@@ -31,7 +32,7 @@ public class SpitAimController : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
-                    Fire(_missile);
+                    Fire2(_missileGrab);
                     _time = _cooldown;
                 }
 
@@ -64,6 +65,16 @@ public class SpitAimController : MonoBehaviour
             GameManager.instance._mouthScript.Spit(0.2f);
         }
 
+    }
+
+    void Fire2(GameObject _obj)
+    {
+        if (_rb.mass > 1f && transform.localScale.x > 1)
+        {
+            Instantiate(_obj, _mouth.position, _mouth.rotation);
+            
+            GameManager.instance._mouthScript.Spit(0.2f);
+        }
 
     }
 }

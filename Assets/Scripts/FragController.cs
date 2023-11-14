@@ -21,10 +21,10 @@ public class FragController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("hit");
+        //Debug.Log("hit");
         if (collision.gameObject.CompareTag("spit"))
         {
-            Debug.Log("inin");
+            //Debug.Log("inin");
 
             blobMissile _missile = collision.gameObject.GetComponent<blobMissile>();
 
