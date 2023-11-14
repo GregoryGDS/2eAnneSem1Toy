@@ -87,13 +87,13 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             case 0:
                 //Debug.Log(_index + " top \n" + _camLook.m_Orbits[0].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 6f;
-                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 4.5f;
+                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 10f;
+                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 9f;
                 break;
             case 1:
                 //Debug.Log(_index + " middle \n" + _camLook.m_Orbits[1].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 3f;
-                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 3f;
+                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 7f;
+                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 7f;
                 break;
             case 2:
                 //Debug.Log(_index + " bottom \n" + _camLook.m_Orbits[2].m_Radius);
