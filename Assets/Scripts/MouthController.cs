@@ -35,15 +35,43 @@ public class MouthController : MonoBehaviour
                 Destroy(other.gameObject);
                 GameManager.instance.UpdateNumberObject();
             }
+        }
+
+
+        if (other.CompareTag("object_nega") && GameManager.instance._vacuumScript._vacuumOn)
+        {
+
+            if (_allBody.GetComponent<Rigidbody>().mass >= other.GetComponent<Rigidbody>().mass)
+            {
+                Swallow(other.GetComponent<Rigidbody>().mass, true);
+                _allBody.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                _allBody.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+                Destroy(other.gameObject);
+                GameManager.instance.UpdateNumberObject();
+            }
 
         }
     }
 
 
-    public void Swallow(float _mass)
+    public void Swallow(float _mass, bool _lost = false)
     {
-        _allBody.GetComponent<Rigidbody>().mass += _mass;
-        _allBody.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        if (!_lost)
+        {
+            _allBody.GetComponent<Rigidbody>().mass += _mass;
+            _allBody.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        }
+        else
+        {
+            if(_allBody.GetComponent<Rigidbody>().mass - _mass >= 1)
+            {
+                _allBody.GetComponent<Rigidbody>().mass -= _mass;
+                _allBody.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+            }
+
+        }
+
 
     }
 

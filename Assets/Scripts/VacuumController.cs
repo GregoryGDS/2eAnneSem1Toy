@@ -74,7 +74,7 @@ public class VacuumController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("object"))
+        if (other.CompareTag("object") || other.CompareTag("object_nega"))
         {
             if (_vacuumOn && _allBody.GetComponent<Rigidbody>().mass >= other.GetComponent<Rigidbody>().mass)
             {
@@ -87,11 +87,14 @@ public class VacuumController : MonoBehaviour
             }
 
         }
+
+
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("object"))
+        if (other.CompareTag("object") || other.CompareTag("object_nega"))
         {
             Stop(other);
         }

@@ -9,6 +9,7 @@ TagManager:
   - mouth
   - spit
   - ground
+  - object_nega
   layers:
   - Default
   - TransparentFX
