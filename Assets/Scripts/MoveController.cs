@@ -106,6 +106,8 @@ public class MoveController : MonoBehaviour
         _moveDirection = _orientation.forward * _verticalMovement + _orientation.right * _horizontalMovement;
         //_moveDirection = transform.forward * _verticalMovement + transform.right * _horizontalMovement;
 
+       
+        
         _rb.AddForce(_moveDirection.normalized * _speed * _force * _forceMultiplier * Time.deltaTime);
 
         //_rb.velocity = _moveDirection.normalized * _speed * _force * _forceMultiplier * Time.deltaTime;

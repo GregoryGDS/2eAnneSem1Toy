@@ -17,30 +17,31 @@ public class blobMissile : MonoBehaviour
 
         _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
     }
-
     // Update is called once per frame
     void Update()
     {
-        if (_isDead)
-        {
-            _lifeTime -= Time.deltaTime;
 
-            if (_lifeTime <= 0)
-            {
-                Destruct();
-            }
+        _lifeTime -= Time.deltaTime;
+
+        if (_lifeTime <= 0)
+        {
+            Destruct();
         }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("mouth"))
+        /*
+        if (collision.gameObject.CompareTag("object"))
         {
+            collision.gameObject.GetComponent<Rigidbody>(); // - mass
             Destruct();
         }
+        */
     }
 
-    void Destruct()
+    public void Destruct()
     {
         Destroy(gameObject);
     }

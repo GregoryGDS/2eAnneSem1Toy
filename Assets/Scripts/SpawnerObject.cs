@@ -8,6 +8,8 @@ public class SpawnerObject : MonoBehaviour
     public float _x;
     public float _y;
     public float _z;
+
+    public Transform _group;
     private void Start()
     {
         
@@ -18,7 +20,13 @@ public class SpawnerObject : MonoBehaviour
     {
         int _choice = Random.Range(0, _listObject.Length);
 
-        Instantiate(_listObject[_choice], transform.position + new Vector3(Random.Range(-_x, _x), Random.Range(-_y, _y), Random.Range(-_z, _z)), _listObject[_choice].transform.rotation);
+        Instantiate(_listObject[_choice], 
+            transform.position + new Vector3(
+                Random.Range(-_x, _x), 
+                Random.Range(-_y, _y), 
+                Random.Range(-_z, _z)), 
+            _listObject[_choice].transform.rotation, 
+            _group);
 
     }
 
