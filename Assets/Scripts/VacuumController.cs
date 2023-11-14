@@ -102,10 +102,10 @@ public class VacuumController : MonoBehaviour
 
     void Stop(Collider _obj)
     {
-        /*
+        
         _obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _obj.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-        */
+        
     }
 
 }
