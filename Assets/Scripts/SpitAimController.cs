@@ -32,7 +32,7 @@ public class SpitAimController : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
-                    Fire2(_missileGrab);
+                    Fire(_missile);
                     _time = _cooldown;
                 }
 
