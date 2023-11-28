@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{23c399cd-2add-4145-9ee3-0f202a580cb7}">
+		<property name="assetPath">
+			<value>Machines, Elevator, Up And Down, Beeps SND0599 1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.19963541666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02b2e286-e65a-4d19-8a32-af0aa0bdbf8b}</destination>
+		</relationship>
+	</object>
+</objects>

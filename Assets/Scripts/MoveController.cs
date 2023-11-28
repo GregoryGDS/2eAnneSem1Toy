@@ -48,6 +48,8 @@ public class MoveController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+
+
     }
 
     void Move()
