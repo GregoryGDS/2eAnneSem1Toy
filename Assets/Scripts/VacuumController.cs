@@ -13,13 +13,10 @@ public class VacuumController : MonoBehaviour
     public Transform _mouth;
     public GameObject _allBody;
 
-<<<<<<< Updated upstream
-=======
     public bool _spitOn;
 
     private FMOD.Studio.EventInstance event_fmod;
     public bool Soundstart = false;
->>>>>>> Stashed changes
     private void Start()
     {
         event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Aspiration");
@@ -32,15 +29,12 @@ public class VacuumController : MonoBehaviour
 
             _vacuumOn = true;
             //Debug.Log("Aspire");
-<<<<<<< Updated upstream
 
-=======
             if (Soundstart == false)
             {
                 event_fmod.start();
                 Soundstart = true;
             }
->>>>>>> Stashed changes
         }
         else
         {

@@ -9,13 +9,6 @@ public class MouthController : MonoBehaviour
     private bool _sound = false;
     private float timer;
 
-<<<<<<< Updated upstream
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("hello");
-;    }
-=======
     //comment mettre ce script dans le parent ? vu qu'il y a a juste le trigger ? 
     private FMOD.Studio.EventInstance event_fmod;
     // Start is called before the first frame update
@@ -23,7 +16,6 @@ public class MouthController : MonoBehaviour
     {
         event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Avale");
     }
->>>>>>> Stashed changes
 
     // Update is called once per frame
     void Update()
@@ -57,11 +49,8 @@ public class MouthController : MonoBehaviour
     {
         _allBody.GetComponent<Rigidbody>().mass += _mass;
         _allBody.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
-<<<<<<< Updated upstream
-=======
 
         event_fmod.start();
->>>>>>> Stashed changes
 
     }
 }
