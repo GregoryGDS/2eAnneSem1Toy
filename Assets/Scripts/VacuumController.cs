@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FMOD;
 using UnityEngine;
 
 public class VacuumController : MonoBehaviour
@@ -12,9 +13,16 @@ public class VacuumController : MonoBehaviour
     public Transform _mouth;
     public GameObject _allBody;
 
+<<<<<<< Updated upstream
+=======
+    public bool _spitOn;
+
+    private FMOD.Studio.EventInstance event_fmod;
+    public bool Soundstart = false;
+>>>>>>> Stashed changes
     private void Start()
     {
-        
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Aspiration");
     }
 
     private void Update()
@@ -24,11 +32,20 @@ public class VacuumController : MonoBehaviour
 
             _vacuumOn = true;
             //Debug.Log("Aspire");
+<<<<<<< Updated upstream
 
+=======
+            if (Soundstart == false)
+            {
+                event_fmod.start();
+                Soundstart = true;
+            }
+>>>>>>> Stashed changes
         }
         else
         {
             _vacuumOn = false;
+
         }
 
         if (Input.GetKey(KeyCode.Mouse1)){
@@ -40,10 +57,13 @@ public class VacuumController : MonoBehaviour
         if (_vacuumOn)
         {
             _mouth.transform.localScale = new Vector3(0.70f, 0.65f, 0.1f);
+            
         }
         else
         {
             _mouth.transform.localScale = new Vector3(0.3f, 0.1f, 0.1f);
+            event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            Soundstart = false;
         }
     }
 
