@@ -48,8 +48,6 @@ public class MoveController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-
-
     }
 
     void Move()
@@ -85,12 +83,6 @@ public class MoveController : MonoBehaviour
         */
 
 
-
-
-
-
-
-
         // permet d'avancer toujours dans la direction dans laquelle on regarde
 
         //_forceMultiplier = 1;
@@ -114,22 +106,5 @@ public class MoveController : MonoBehaviour
 
         //_rb.velocity = _moveDirection.normalized * _speed * _force * _forceMultiplier * Time.deltaTime;
 
-        /*
-               if(_previousPalier != _palier)
-               {
-                   _previousPalier = _palier;
-                   GameManager.instance._cameraScript.UpdateOrbitsRigs(0, 0.5f, 0.5f);
-                   GameManager.instance._cameraScript.UpdateOrbitsRigs(1, 0.5f, 0.5f);
-                   GameManager.instance._cameraScript.UpdateOrbitsRigs(2, 0.5f, 0.5f);
-               }
-
-        */
-        GameManager.instance._cameraScript.UpdateOrbitsRigs(0, 10f, 0.5f);
-        GameManager.instance._cameraScript.UpdateOrbitsRigs(1, 10f, 0.5f);
-        GameManager.instance._cameraScript.UpdateOrbitsRigs(2, 10f, 0.5f);
     }
-
-
-
-    // voir pour appliquer au body et pas au player
 }

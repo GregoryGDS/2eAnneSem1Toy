@@ -16,7 +16,7 @@ public class SpitAimController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rb = transform.GetComponent<Rigidbody>();
+        //_rb = transform.GetComponent<Rigidbody>();
         _time = 0f;
     }
 
@@ -27,7 +27,7 @@ public class SpitAimController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse1))
             {
-                GameManager.instance._moveScript._moveType = CameraType.FreeSpit;
+                GameManager.Instance._moveScript._moveType = CameraType.FreeSpit;
 
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
@@ -38,7 +38,7 @@ public class SpitAimController : MonoBehaviour
             }
             else
             {
-               GameManager.instance._moveScript._moveType = CameraType.TowardsSwallow;
+               GameManager.Instance._moveScript._moveType = CameraType.TowardsSwallow;
                // desactive le suivi de cam de visée
             }
 
@@ -49,19 +49,29 @@ public class SpitAimController : MonoBehaviour
             _time -= Time.deltaTime;
         }
 
+        //controle pour après tire, repasse la masse à 1 si < 1 // marche pas si dans Fire()
+        if (GameManager.Instance._vacuumScript._mass < 1)
+        {
+            GameManager.Instance._vacuumScript._mass = 1;
+        }
+
+
     }
 
 
     void Fire(blobMissile _obj)
     {
-        if (_rb.mass > 1f && transform.localScale.x > 1)
+        float _m = GameManager.Instance._vacuumScript._mass;
+        Transform _h = GameManager.Instance._cameraScript._head;
+        if (_m > 1f && transform.localScale.x > 1)
         {
-            blobMissile _atSpawn = Instantiate(_obj, _mouth.position, _mouth.rotation);
+            // mettre instantiate sur la head
+            // mettre la head dans game manager, pour éviter de la remettre partout, on la met juste là
+            blobMissile _atSpawn = Instantiate(_obj, _h.position, _h.rotation);
 
-            _atSpawn._damage = _rb.mass / 10; // script placé sur Player
-            //Debug.Log(transform.GetComponent<Rigidbody>().mass);
+            _atSpawn._damage = _m / 10; // script placé sur Player
 
-            GameManager.instance._mouthScript.Spit(0.2f);
+            GameManager.Instance._vacuumScript.LossMass(_atSpawn._damage);
         }
 
 

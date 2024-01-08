@@ -4,26 +4,38 @@ using UnityEngine;
 
 public enum CameraType
 {
-    TowardsSwallow,
-    FreeSpit,
+    TowardsSwallow, // normal
+    FreeSpit, // visée
+}
+public enum FoodType
+{
+    Normal,
+    Runner,
 }
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
 
     public int _spawnMax;
     public int _current;
 
     public SpawnerObject _spawnerScript;
     public ThirdPersonCamera _cameraScript;
-    public VacuumController _vacuumScript;
+    public VacuumBehavior _vacuumScript;
     public MoveController _moveScript;
-    public MouthController _mouthScript;
+    public SwallowBehavior _mouthScript; // SwallowBehavior
 
-    void Start()
+    void Awake()
     {
-        instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("Une instance Game Manager existe déjà.");
+        }
     }
 
     void FixedUpdate()
