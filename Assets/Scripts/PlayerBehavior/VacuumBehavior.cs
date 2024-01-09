@@ -68,7 +68,7 @@ public class VacuumBehavior : MonoBehaviour
             if (_aspirableList.Count != 0)// passe le bug du remove
             {
                 //Debug.Log("in _aspirableList.Count != 0 : "+ _aspirableList.Count);
-                Debug.Log("before foreach vacuum : " + _aspirableList.Count);
+                //Debug.Log("before foreach vacuum : " + _aspirableList.Count);
                 foreach (Aspirable _aspirable in _aspirableList)
                 {
                     //Debug.Log("in foreach");
@@ -79,10 +79,6 @@ public class VacuumBehavior : MonoBehaviour
                         //verif range ? 
                         float _angleRange = 1f - Mathf.Clamp01(Vector3.Angle(_swallowPosition.transform.forward, _dir) / _maxAngle);
                         _aspirable._rb.AddForce(-_dir.normalized * _aspirationForce * _angleRange);
-                    }
-                    else
-                    {
-                        Debug.LogWarning("NOPE");
                     }
 
                 }
@@ -136,17 +132,17 @@ public class VacuumBehavior : MonoBehaviour
 
     public void RemoveAspirable(Aspirable _obj)
     {
-        Debug.Log("in  removeAspirable");
+        //Debug.Log("in  removeAspirable");
         //Debug.Log("remove obj : " + _obj.name);
 
         //Debug.Log("contains before remove : " + _aspirableList.Contains(_obj));
 
         if (_obj != null && _aspirableList.Contains(_obj))
         {
-            Debug.Log("in  removeAspirable : check null et contains");
+            //Debug.Log("in  removeAspirable : check null et contains");
             //_obj._isDestroy = true;//empeche de l'enregistrer à nouveaux dans la liste => fait avant remove et suppression pour être certain
             _aspirableList.Remove(_obj);
-            Debug.Log("contains after remove : " + _aspirableList.Contains(_obj) + "\n _isDestroy : " + _obj._isDestroy);
+            //Debug.Log("contains after remove : " + _aspirableList.Contains(_obj) + "\n _isDestroy : " + _obj._isDestroy);
             _obj.EndAspiration();
         }
 

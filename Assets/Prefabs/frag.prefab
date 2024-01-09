@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7240440528670760775}
   m_Layer: 0
   m_Name: frag
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,3 +152,4 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _isAspirated: 0
   _isDestroy: 0
+  _scaleSpeed: 0

@@ -24,13 +24,11 @@ public class SwallowBehavior : MonoBehaviour
         
     }
 
-
-
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("object") && _vacuumScript._vacuumOn)
+        if (collision.gameObject.CompareTag("object")) // && _vacuumScript._vacuumOn
         {
-            Debug.Log("enter collision");
+            //Debug.Log("enter collision");
             Aspirable _aspirableObject = collision.gameObject.GetComponent<Aspirable>();
             if (_aspirableObject != null && !_aspirableObject._isDestroy && _vacuumScript._aspirableList.Contains(_aspirableObject))
             {
@@ -45,7 +43,7 @@ public class SwallowBehavior : MonoBehaviour
 
                 float _angleDiffMouth = Mathf.Clamp01(_impactAngle / _mouthAngle); // entre 0 et 1
 
-                Debug.Log("angle impact : " + _impactAngle + "\nangle diff : " + _angleDiffMouth);
+                //Debug.Log("angle impact : " + _impactAngle + "\nangle diff : " + _angleDiffMouth);
 
                 if (_angleDiffMouth < 1f) //si < 1 = dans la range
                 {
@@ -70,7 +68,7 @@ public class SwallowBehavior : MonoBehaviour
 
     public void Swallow(Aspirable _objectApire)
     {
-        Debug.Log("in swallow");
+        //Debug.Log("in swallow");
         _objectApire.EndAspiration();
 
         _vacuumScript.GainMass(_objectApire._mass);
@@ -87,7 +85,7 @@ public class SwallowBehavior : MonoBehaviour
         //Destroy(_objectApire);
         _vacuumScript.RemoveAspirable(_objectApire); //marche pas
 
-        Debug.Log("before destroySelf");
+        //Debug.Log("before destroySelf");
 
         _objectApire.DestroySelf();
     }

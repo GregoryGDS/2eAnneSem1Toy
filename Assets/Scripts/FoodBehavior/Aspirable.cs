@@ -8,11 +8,16 @@ public class Aspirable : MonoBehaviour
 {
     public FoodType _type = FoodType.Normal;
     public float _mass = 1f;
+    public float _massMax = 1f;
+
     public Rigidbody _rb;
     public NavMeshAgent _agent;
     public bool _isAspirated;
 
     public bool _isDestroy; // siva être détruit, pour ne pas être à nouveaux ajouté
+
+    public Vector3 _newScale;
+    public float _scaleSpeed = 1.5f;
 
     private void Start()
     {
@@ -22,12 +27,21 @@ public class Aspirable : MonoBehaviour
         {
             _rb.isKinematic = false;
         }
-        
+        _massMax = _mass;
+        _newScale = transform.localScale; // initiale
     }
 
-    public void lossMass(float _l)
+    private void Update()
     {
-        _mass -= _l;
+
+        transform.localScale = Vector3.MoveTowards(transform.localScale, _newScale, _scaleSpeed * Time.deltaTime);
+
+
+    }
+
+    public void lossMass(float _loss)
+    {
+        _mass -= _loss;
     }
 
     public void StartAspiration()
@@ -77,7 +91,18 @@ public class Aspirable : MonoBehaviour
 
         //desactive et dans game master après 1s supprimer les objet desactivé ? 
 
-        Debug.Log("in DestroySelf, count list : " + GameManager.Instance._vacuumScript._aspirableList.Count);
+        //Debug.Log("in DestroySelf, count list : " + GameManager.Instance._vacuumScript._aspirableList.Count);
         
+    }
+
+
+    public void Rescale()
+    {
+        float _newScaleX = (transform.localScale.x * _mass) / _massMax;
+        float _newScaleY = (transform.localScale.y * _mass) / _massMax;
+        float _newScaleZ = (transform.localScale.z * _mass) / _massMax;
+
+        _newScale = new Vector3(_newScaleX, _newScaleY, _newScaleZ);
+        Debug.Log(gameObject.name + " / _newScale : " + _newScale);
     }
 }

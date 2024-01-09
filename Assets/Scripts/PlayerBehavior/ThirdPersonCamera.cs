@@ -54,17 +54,13 @@ public class ThirdPersonCamera : MonoBehaviour
         _camDefaultSizeVise.Add("Bot", new List<float> { 2, 0.3f });
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         AdjustOrbits();
-        //_orientation = vers où la caméra regarde 
 
-        //calcule rotation de la caméra au joueur pour trouver où doit aller le .forward
 
-        // rotation / orientation de la cam sur XZ
-        
-        
+        // rotation / orientation de la cam sur XZ pas Y
         _viewDir = _player.position - new Vector3(transform.position.x, _player.position.y, transform.position.z); //new Vector3(transform.position.x, _player.position.y, transform.position.z)
 
         if (GameManager.Instance._moveScript._moveType == CameraType.TowardsSwallow)
@@ -87,14 +83,6 @@ public class ThirdPersonCamera : MonoBehaviour
         _orientation.forward = _viewDir.normalized; // pour MoveController
 
         //Debug.DrawRay(_orientation.position, _viewDirHead.normalized * 2f, Color.blue);
-
-
-        // rotation Player (tout)
-        float _horizontalInput = Input.GetAxis("Horizontal");
-        float _verticalInput = Input.GetAxis("Vertical");
-
-        //Vector3 _dir = _orientation.forward * _verticalInput + _orientation.right * _horizontalInput;
-        //pk right ? 
 
         if (_viewDir != Vector3.zero)
         {
@@ -122,7 +110,7 @@ public class ThirdPersonCamera : MonoBehaviour
          * 2 => bottom
         */
 
-        float scaleFactor = ((_player.localScale.x + _player.localScale.y + _player.localScale.z) / 3f) ;//-1 pour scale 1 initiale
+        float scaleFactor = ((_player.localScale.x + _player.localScale.y + _player.localScale.z) / 3f) ;//au cas ou les 3 scale ne sont pas identique 
 
 
 
@@ -159,119 +147,6 @@ public class ThirdPersonCamera : MonoBehaviour
 
         //Debug.Log("_camLook.m_Orbits[2].m_Radius after : " + _camLook.m_Orbits[2].m_Radius);
 
-        // Adjust the height based on the scale factor
 
     }
-
-
-
-
-    public void UpdateOrbitsRigs(int _index, float _radius, float _height)
-    {
-        //freeLookState.CorrectedPosition will give you the freeLook's current position, including any freeLook movement
-
-        var distance = Vector3.Distance(_camLook.State.CorrectedPosition, _player.position);
-
-        //_camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 2f;
-        //_camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.y * 0.6f;
-
-        //AdjustOrbits();
-
-        /*
-        float scaleRatio = _player.transform.localScale.x / _initialScale;
-
-        // Ajustez les paramètres en fonction du rapport
-        _camLook.m_Orbits[2].m_Height = 1 * scaleRatio;
-        _camLook.m_Orbits[2].m_Radius = 3 * scaleRatio;
-
-        // Pour l'échelle 2
-        if (_player.transform.localScale.x == 2)
-        {
-            _camLook.m_Orbits[2].m_Height = 4 * scaleRatio;
-            _camLook.m_Orbits[2].m_Radius = 9 * scaleRatio;
-        }
-        */
-        /*
-        switch (_index)
-        {
-            case 0:
-                //Debug.Log(_index + " top \n" + _camLook.m_Orbits[0].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _camDefaultSizeTop[0];
-                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _camDefaultSizeTop[1];
-                break;
-            case 1:
-                //Debug.Log(_index + " middle \n" + _camLook.m_Orbits[1].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _camDefaultSizeMid[0];
-                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _camDefaultSizeMid[1];
-                break;
-            case 2:
-
-                //Debug.Log(_index + " bottom \n" + _camLook.m_Orbits[2].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _camDefaultSizeBot[0];
-                _camLook.m_Orbits[_index].m_Height = _player.localScale.z + _camDefaultSizeBot[1];
-                /*
-                if (GameManager.instance._moveScript._moveType == CameraType.FreeSpit)
-                {
-                    _camLook.m_Orbits[_index].m_Height = ((_player.localScale.z * 0.6f) * -1f) - 1f;
-                }
-                else
-                {
-                    _camLook.m_Orbits[_index].m_Height = _player.localScale.y;
-                }
-                /
-                break;
-            default:
-                return;
-        }
-        */
-
-        /*
-        switch (_index)
-        {
-            case 0:
-                //Debug.Log(_index + " top \n" + _camLook.m_Orbits[0].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 10f;
-                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 9f;
-                break;
-            case 1:
-                //Debug.Log(_index + " middle \n" + _camLook.m_Orbits[1].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 7f;
-                _camLook.m_Orbits[_index].m_Height = _player.localScale.y + _player.localScale.z * 7f;
-                break;
-            case 2:
-                //Debug.Log(_index + " bottom \n" + _camLook.m_Orbits[2].m_Radius);
-                _camLook.m_Orbits[_index].m_Radius = _player.localScale.z + _player.localScale.z * 1f;
-
-                if (GameManager.instance._moveScript._moveType == CameraType.FreeSpit)
-                {
-                    _camLook.m_Orbits[_index].m_Height = ((_player.localScale.z * 0.6f) * -1f) - 1f;
-                }
-                else
-                {
-                    _camLook.m_Orbits[_index].m_Height = _player.localScale.y * 0.3f;
-                }
-                break;
-            default:
-                return;
-        }
-*/
-
-    }
-
-
-    /*
-        _horizontalMovement = Input.GetAxisRaw("Horizontal"); //raw = -1/0/1
-        _verticalMovement = Input.GetAxisRaw("Vertical");
-        Vector3 _direction = new Vector3(_horizontalMovement, 0f, _horizontalMovement).normalized;
-        
-        if(_direction.magnitude >= 0.1f)
-        {
-            float _targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg;
-            float _angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetAngle, ref SmoothVelocity, 0.1f);
-
-            transform.rotation = Quaternion.Euler(0f, _targetAngle, 0f);
-        }
-
-     */
-
 }

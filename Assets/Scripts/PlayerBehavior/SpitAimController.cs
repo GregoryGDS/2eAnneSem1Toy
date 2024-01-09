@@ -19,17 +19,18 @@ public class SpitAimController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void awake()
     {
         //_rb = transform.GetComponent<Rigidbody>();
         _time = 0f;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
+        /* tentative diretion avec raycast 
+         * 
+         * 
         if (_camBrain != null && Input.GetKey(KeyCode.Mouse1))
         {
             // Get the position of the screen center in viewport space (0.5, 0.5)
@@ -43,22 +44,8 @@ public class SpitAimController : MonoBehaviour
 
             //Debug.DrawRay(_spawnPoint.position, GameManager.Instance._cameraScript.getDirHead().normalized * 3f, Color.blue);
 
-
-            /*
-            RaycastHit hit;
-            Ray ray = _camLook.ScreenPointToRay(Input.mousePosition);
-            
-
-            if (Physics.Raycast(_camLook.position, _camLook.forward, 100f))
-            {
-                Transform objectHit = hit.transform;
-
-                // Do something with the object that was hit by the raycast.
-                Debug.DrawRay(_spawnPoint.position, objectHit.position - _spawnPoint.position * 3f, Color.blue);
-
-            }
-        */
-        /*
+        
+        
             //GameManager.Instance._cameraScript.getDirHead()
             Vector3 rayDirection = _camBrain.transform.forward;
 
@@ -88,7 +75,7 @@ public class SpitAimController : MonoBehaviour
                 // Optionally, you can use the vector for further actions, such as moving an object in that direction
                 // objectToMove.transform.Translate(directionVector * Time.deltaTime * moveSpeed);
             }
-
+            
         }
         */
 
@@ -100,8 +87,11 @@ public class SpitAimController : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
+                    
                     Fire(_missile);
                     _time = _cooldown;
+                    
+
                 }
 
             }
@@ -129,19 +119,34 @@ public class SpitAimController : MonoBehaviour
 
     public Vector3 getDirectionAiming() // pour blobMissible
     {
+        Debug.DrawRay(_spawnPoint.position, _directionAiming.normalized * 10f, Color.blue);
+
         return _directionAiming;
     }
 
     void Fire(blobMissile _obj)
     {
-        float _m = GameManager.Instance._vacuumScript._mass;
-        if (_m > 1f && transform.localScale.x > 1)
+
+        if (GameManager.Instance._vacuumScript._mass > 1f && transform.localScale.x > 1f)
         {
+
+            Debug.Log("shoot");
+
             // mettre instantiate sur la head
             // mettre la head dans game manager, pour éviter de la remettre partout, on la met juste là
             blobMissile _atSpawn = Instantiate(_obj, _spawnPoint.position, _spawnPoint.rotation);
 
-            _atSpawn._damage = _m / 10; // script placé sur Player
+            /*
+             Quaternion targetRotation = Quaternion.LookRotation(_directionAiming);
+
+            // Apply the rotation to the object
+            _atSpawn.gameObject.transform.rotation = targetRotation;
+             */
+
+            _atSpawn._damage = GameManager.Instance._vacuumScript._mass / 10; // script placé sur Player
+
+            //_atSpawn.SetDir(_directionAiming);
+            Debug.Log("_atSpawn._damage / reduc mass : " + _atSpawn._damage);
 
             GameManager.Instance._vacuumScript.LossMass(_atSpawn._damage);
         }

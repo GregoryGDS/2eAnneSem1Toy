@@ -19,27 +19,32 @@ public class blobMissile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
-        //_targetAim = GameObject.FindGameObjectWithTag("aimPoint").transform;
+        Debug.Log("in bullet");
 
-        Scale();
+        _rb = GetComponent<Rigidbody>();
+        _targetAim = GameObject.FindGameObjectWithTag("aimPoint").transform;
+        _dir = _targetAim.position - transform.position;
         Fire();
+        Scale();
+        Debug.DrawRay(transform.position, _dir * 500f, Color.yellow);
+
     }
     // Update is called once per frame
     void Update()
     {
-
+        
         _lifeTime -= Time.deltaTime;
 
         if (_lifeTime <= 0)
         {
             Destruct();
         }
-        //Debug.DrawRay(transform.position, _dir * 500f, Color.yellow);
 
-        _dir = GameManager.Instance._spitAimScript.getDirectionAiming().normalized;
         //Debug.DrawRay(transform.position, _dir * 500f, Color.blue);
 
+
+        Debug.DrawRay(transform.position, _dir * 500f, Color.yellow);
+        
 
     }
 
@@ -52,6 +57,11 @@ public class blobMissile : MonoBehaviour
             Destruct();
         }
         
+    }
+
+    public void SetDir(Vector3 _d)
+    {
+        _dir = _d;
     }
 
     public void Destruct()
@@ -74,11 +84,7 @@ public class blobMissile : MonoBehaviour
 
     public void Fire()
     {
-
-
         _rb.AddForce(_dir * _speed, ForceMode.Impulse);
-
-
     }
 
 }

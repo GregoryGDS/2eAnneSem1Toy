@@ -27,27 +27,28 @@ public class FragController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("spit"))
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
 
             blobMissile _missile = collision.gameObject.GetComponent<blobMissile>();
 
 
             //transform.localScale -= new Vector3(_missile._damage, _missile._damage, _missile._damage);
 
-            Debug.Log(_aspirableScript._mass - _missile._damage);
+            //Debug.Log(_aspirableScript._mass - _missile._damage);
             if ((_aspirableScript._mass - _missile._damage) > 1f)
             {
 
                 //transform.localScale -= new Vector3(_missile._damage, _missile._damage, _missile._damage);
 
                 _aspirableScript.lossMass(_missile._damage);
+                _aspirableScript.Rescale();
 
-                Vector3 dir = collision.contacts[0].point - transform.position;
+                Vector3 _dir = collision.contacts[0].point - transform.position;
 
 
                 //Todo add impulse force
                 Vector3 bounceDir = collision.transform.position - transform.position;
-                dir.y = 0f;
+                _dir.y = 0f;
                 Debug.DrawRay(transform.position, bounceDir * 10, Color.red);
                 //Todo reflect velocity ?
                 // bounceDir = Vector3.Reflect(collision.rigidbody.velocity, bounceDir.normalized);
@@ -60,8 +61,7 @@ public class FragController : MonoBehaviour
                     _group
                     );
 
-                _a.GetComponent<Rigidbody>().AddForce(dir * bounceImpulse, ForceMode.Impulse);
-
+                _a.GetComponent<Rigidbody>().AddForce(_dir.normalized * bounceImpulse, ForceMode.Impulse);
 
 
             }
