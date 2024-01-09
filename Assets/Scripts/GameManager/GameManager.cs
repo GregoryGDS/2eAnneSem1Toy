@@ -13,6 +13,13 @@ public enum FoodType
     Runner,
 }
 
+public enum TypeObject
+{
+    Verre,
+    Distributeur,
+    Batiement
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;

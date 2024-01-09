@@ -11,10 +11,12 @@ public class FragController : MonoBehaviour
 
     public float bounceImpulse = 2f;
 
+    private FMOD.Studio.EventInstance event_fmod;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Objet/Fragmentation");
     }
 
     // Update is called once per frame
@@ -30,6 +32,15 @@ public class FragController : MonoBehaviour
             //Debug.Log("hit");
 
             blobMissile _missile = collision.gameObject.GetComponent<blobMissile>();
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Objet/Impact");
+
+            /* Test soun diff pour chaque objet
+            event_fmod.setParameterByName("ObjectType", _aspirableScript._fragIndex);
+            event_fmod.start();
+            Debug.Log("_aspirableScript._fragIndex : " + _aspirableScript._fragIndex);
+            */
+
 
 
             //transform.localScale -= new Vector3(_missile._damage, _missile._damage, _missile._damage);
@@ -63,9 +74,7 @@ public class FragController : MonoBehaviour
 
                 _a.GetComponent<Rigidbody>().AddForce(_dir.normalized * bounceImpulse, ForceMode.Impulse);
 
-
             }
-
             //Debug.Log(_missile._damage);
             _missile.Destruct();
 

@@ -68,6 +68,8 @@ public class SwallowBehavior : MonoBehaviour
 
     public void Swallow(Aspirable _objectApire)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Avale");
+
         //Debug.Log("in swallow");
         _objectApire.EndAspiration();
 

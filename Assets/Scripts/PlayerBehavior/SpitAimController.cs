@@ -17,6 +17,8 @@ public class SpitAimController : MonoBehaviour
     public Camera _camBrain;
     private Vector3 _directionAiming;
 
+    private bool PlaySound = false;
+
 
     // Start is called before the first frame update
     void awake()
@@ -83,7 +85,13 @@ public class SpitAimController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse1))
             {
+                
                 GameManager.Instance._moveScript._moveType = CameraType.FreeSpit;
+                if (PlaySound == false)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PreShot");
+                    PlaySound = true; 
+                }
 
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
@@ -98,7 +106,8 @@ public class SpitAimController : MonoBehaviour
             else
             {
                GameManager.Instance._moveScript._moveType = CameraType.TowardsSwallow;
-               // desactive le suivi de cam de visée
+                // desactive le suivi de cam de visée
+                PlaySound = false;
             }
 
             
@@ -131,6 +140,7 @@ public class SpitAimController : MonoBehaviour
         {
 
             Debug.Log("shoot");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Shot");
 
             // mettre instantiate sur la head
             // mettre la head dans game manager, pour éviter de la remettre partout, on la met juste là

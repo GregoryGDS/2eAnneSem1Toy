@@ -18,6 +18,10 @@ public class Aspirable : MonoBehaviour
 
     public Vector3 _newScale;
     public float _scaleSpeed = 1.5f;
+    
+    public TypeObject _typeBat = TypeObject.Verre;
+    public int _fragIndex = 0;
+
 
     private void Start()
     {
@@ -29,14 +33,40 @@ public class Aspirable : MonoBehaviour
         }
         _massMax = _mass;
         _newScale = transform.localScale; // initiale
+
+
+        if (_typeBat == TypeObject.Verre)
+        {
+            _fragIndex = 0;
+        }
+        if (_typeBat == TypeObject.Distributeur)
+        {
+            _fragIndex = 1;
+        }
+        if (_typeBat == TypeObject.Batiement)
+        {
+            _fragIndex = 2;
+        }
+
+
     }
 
     private void Update()
     {
 
         transform.localScale = Vector3.MoveTowards(transform.localScale, _newScale, _scaleSpeed * Time.deltaTime);
-
-
+        CheckApsirableKinect();
+    }
+    public void CheckApsirableKinect()
+    {
+        if (_mass <= GameManager.Instance._vacuumScript._mass)
+        {
+            _rb.isKinematic = false;
+        }
+        else
+        {
+            _rb.isKinematic = true;
+        }
     }
 
     public void lossMass(float _loss)

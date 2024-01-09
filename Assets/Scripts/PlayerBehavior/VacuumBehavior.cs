@@ -26,10 +26,13 @@ public class VacuumBehavior : MonoBehaviour
     [Header("Aim Parameter")]
     public bool _spitOn;
 
+    private FMOD.Studio.EventInstance event_fmod;
+    private bool SoundPlaying = false;
     private void Start()
     {
         //_triggerRange = GetComponent<SphereCollider>(); //prend le 1er
         _rangeSave = _range;
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Aspiration");
     }
 
     private void Update()
@@ -42,13 +45,23 @@ public class VacuumBehavior : MonoBehaviour
             _vacuumOn = true;
             //Debug.Log("Aspire");
             _vacuumFX.gameObject.SetActive(true);
+            if (SoundPlaying == false)
+            {
+                event_fmod.start();
+                SoundPlaying = true;
+            }
         }
         else
         {
             _vacuumOn = false;
             _vacuumFX.gameObject.SetActive(false);
-
+            if (SoundPlaying == true)
+            {
+                event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                SoundPlaying = false;
+            }
         }
+
 
 
         if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1))

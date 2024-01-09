@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{22036e76-4abf-4ba6-a334-69408ccf566d}">
+		<property name="assetPath">
+			<value>Tire3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.22857142857142856</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02b2e286-e65a-4d19-8a32-af0aa0bdbf8b}</destination>
+		</relationship>
+	</object>
+</objects>
