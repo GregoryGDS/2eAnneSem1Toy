@@ -48,28 +48,8 @@ public class VacuumController : MonoBehaviour
 
             //Debug.Log("Expire");
         }
-
-        //_mouth.transform.rotation = Quaternion.Euler(GameManager.instance._cameraScript._orientation.forward);
-
-        
-        if (_vacuumOn || _spitOn)
-        {
-            _mouth.transform.localScale = new Vector3(0.70f, 0.65f, 0.1f);
-        }
-        else
-        {
-            _mouth.transform.localScale = new Vector3(0.3f, 0.1f, 0.1f);
-        }
     }
 
-
-/*    public IEnumerator Swallow(float _wait)
-    {
-        Debug.Log("Aspire");
-
-        yield return new WaitForSeconds(_wait);
-
-    }*/
 
 
     private void OnTriggerStay(Collider other)
