@@ -9,6 +9,8 @@ public class VacuumBehavior : MonoBehaviour
     public float _mass = 1f;
     public float _scaleSpeed;
 
+    public GameObject _vacuumFX;
+
     [Header("Vacuum Parameter")]
     public Transform _swallowPosition;
 
@@ -39,10 +41,13 @@ public class VacuumBehavior : MonoBehaviour
         {
             _vacuumOn = true;
             //Debug.Log("Aspire");
+            _vacuumFX.gameObject.SetActive(true);
         }
         else
         {
             _vacuumOn = false;
+            _vacuumFX.gameObject.SetActive(false);
+
         }
 
 

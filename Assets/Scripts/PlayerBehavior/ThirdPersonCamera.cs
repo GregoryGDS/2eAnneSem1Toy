@@ -68,7 +68,7 @@ public class ThirdPersonCamera : MonoBehaviour
             //_viewDir = _player.position - new Vector3(transform.position.x, _player.position.y, transform.position.z); //new Vector3(transform.position.x, _player.position.y, transform.position.z)
 
            
-            //_viewDirHead = _viewDir;
+            _viewDirHead = _viewDir; // met la tete aligné avec le corp
 
         }
 
