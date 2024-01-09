@@ -7,11 +7,7 @@ public class MoveController : MonoBehaviour
     [Header("Move")]
     public float _speed;
     public float _force;
-    /*
-    public bool _isGround;
-    public bool _isJumping;
-    public float _gravity;
-    */
+
     [SerializeField]    
     private float _horizontalMovement;
     [SerializeField]
@@ -24,16 +20,8 @@ public class MoveController : MonoBehaviour
     Rigidbody _rb;
 
     public float _forceMultiplier = 1;
-    public int _count = 2;
 
-    public int _palier = 0;
-    public int _previousPalier = 0;
-    public float SmoothVelocity;
-    public CharacterController _controller;
 
-    [Header("Test")]
-    public bool _isJump; // saut utilisé ?
-    public float _jumpForce = 10f;
 
     void Start()
     {
@@ -54,15 +42,22 @@ public class MoveController : MonoBehaviour
     {
         _horizontalMovement = Input.GetAxisRaw("Horizontal"); //raw = -1/0/1
         _verticalMovement = Input.GetAxisRaw("Vertical");
-        //Vector3 _direction = new Vector3(_horizontalMovement, 0f, _verticalMovement).normalized;
+  
+        // calcule mvt avec _moveDirection
+        _moveDirection = _orientation.forward * _verticalMovement + _orientation.right * _horizontalMovement;
+        //_moveDirection = transform.forward * _verticalMovement + transform.right * _horizontalMovement;
 
-        //retourne vector avec magnitude limité (clamp) à 1f
-        //Vector3 moveInputVector = Vector3.ClampMagnitude(new Vector3(_horizontalMovement, 0f, _verticalMovement), 1f);
+        _rb.AddForce(_moveDirection.normalized * _speed * _force * _forceMultiplier * Time.deltaTime);
 
+        //_rb.velocity = _moveDirection.normalized * _speed * _force * _forceMultiplier * Time.deltaTime;
 
-        //Calcule direction 
+    }
+}
+/*
+ 
+         //Calcule direction 
 
-        /*
+        
           if(_direction.magnitude >= 0.1f)
           {
             Debug.Log("go");
@@ -80,31 +75,4 @@ public class MoveController : MonoBehaviour
             _rb.AddForce(_moveDir.normalized * _speed * _force * _forceMultiplier * Time.deltaTime);
 
         }
-        */
-
-
-        // permet d'avancer toujours dans la direction dans laquelle on regarde
-
-        //_forceMultiplier = 1;
-        //_count = 2;
-        if (_rb.mass >= _count)
-        {
-            _forceMultiplier += 1.5f;
-            _count += 2;
-
-            _palier += 1;
-
-        }
-
-        // calcule mvt avec _moveDirection
-        _moveDirection = _orientation.forward * _verticalMovement + _orientation.right * _horizontalMovement;
-        //_moveDirection = transform.forward * _verticalMovement + transform.right * _horizontalMovement;
-
-       
-        
-        _rb.AddForce(_moveDirection.normalized * _speed * _force * _forceMultiplier * Time.deltaTime);
-
-        //_rb.velocity = _moveDirection.normalized * _speed * _force * _forceMultiplier * Time.deltaTime;
-
-    }
-}
+*/

@@ -9,6 +9,8 @@ TagManager:
   - mouth
   - spit
   - ground
+  - CameraBrain
+  - aimPoint
   layers:
   - Default
   - TransparentFX

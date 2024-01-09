@@ -10,7 +10,7 @@ public class ThirdPersonCamera : MonoBehaviour
     public Transform _player;
     public Transform _head;
 
-    public Transform _viseurPoint;
+    public Transform _viseurCamPoint;
 
     public Transform _playerBody;
     public Rigidbody _rb;
@@ -70,8 +70,10 @@ public class ThirdPersonCamera : MonoBehaviour
         if (GameManager.Instance._moveScript._moveType == CameraType.TowardsSwallow)
         {
             //_viewDir = _player.position - new Vector3(transform.position.x, _player.position.y, transform.position.z); //new Vector3(transform.position.x, _player.position.y, transform.position.z)
-            //_camLook.m_Orbits[0].m_Radius = _radiusSwallow;
-            //_camLook.m_Orbits[0].m_Height = _heightSwallow;
+
+           
+            //_viewDirHead = _viewDir;
+
         }
 
         if (GameManager.Instance._moveScript._moveType == CameraType.FreeSpit)
@@ -79,10 +81,13 @@ public class ThirdPersonCamera : MonoBehaviour
             //_offSetCam = transform.position.y;
 
             //_viewDir = _player.position - new Vector3(transform.position.x, transform.position.y, transform.position.z); //new Vector3(transform.position.x, _player.position.y, transform.position.z)
-            _viewDirHead = _viseurPoint.position - new Vector3(transform.position.x, transform.position.y, transform.position.z); //new Vector3(transform.position.x, _player.position.y, transform.position.z)
+            _viewDirHead = _viseurCamPoint.position - new Vector3(transform.position.x, transform.position.y, transform.position.z); //new Vector3(transform.position.x, _player.position.y, transform.position.z)
         }
 
         _orientation.forward = _viewDir.normalized; // pour MoveController
+
+        //Debug.DrawRay(_orientation.position, _viewDirHead.normalized * 2f, Color.blue);
+
 
         // rotation Player (tout)
         float _horizontalInput = Input.GetAxis("Horizontal");
@@ -104,6 +109,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
     }
 
+    public Vector3 getDirHead()
+    {
+        return _viewDirHead;
+    }
 
     void AdjustOrbits()
     {
@@ -119,7 +128,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
         if (GameManager.Instance._moveScript._moveType == CameraType.FreeSpit) //mode visée
         {
-            _camLook.LookAt = _viseurPoint;
+            _camLook.LookAt = _viseurCamPoint;
             _aimPointCanvas.SetActive(true);
 
             _camLook.m_Orbits[0].m_Radius = _camDefaultSizeVise["Top"][0] * scaleFactor;

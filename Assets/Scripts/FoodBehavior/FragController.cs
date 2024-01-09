@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class FragController : MonoBehaviour
 {
-    public GameObject _fragment;
+    public GameObject _prefabFrag;
     public Transform _group;
+
+    public Aspirable _aspirableScript;
+
+    public float bounceImpulse = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,30 +25,45 @@ public class FragController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("hit");
         if (collision.gameObject.CompareTag("spit"))
         {
-            //Debug.Log("inin");
+            Debug.Log("hit");
 
             blobMissile _missile = collision.gameObject.GetComponent<blobMissile>();
 
 
             //transform.localScale -= new Vector3(_missile._damage, _missile._damage, _missile._damage);
 
-
-            if ((GetComponent<Rigidbody>().mass - _missile._damage) > 1)
+            Debug.Log(_aspirableScript._mass - _missile._damage);
+            if ((_aspirableScript._mass - _missile._damage) > 1f)
             {
 
-                transform.localScale -= new Vector3(_missile._damage, _missile._damage, _missile._damage);
+                //transform.localScale -= new Vector3(_missile._damage, _missile._damage, _missile._damage);
 
-                GetComponent<Rigidbody>().mass -= _missile._damage;
-                Instantiate(_fragment,
-                    transform.position + new Vector3(
-                        Random.Range(-transform.position.x + 5, transform.position.x + 5),
-                        Random.Range(0, transform.position.y + 5),
-                        Random.Range(-transform.position.z + 5, transform.position.z + 5)),
-                    transform.rotation,
-                    _group);
+                _aspirableScript.lossMass(_missile._damage);
+
+                Vector3 dir = collision.contacts[0].point - transform.position;
+
+
+                //Todo add impulse force
+                Vector3 bounceDir = collision.transform.position - transform.position;
+                dir.y = 0f;
+                Debug.DrawRay(transform.position, bounceDir * 10, Color.red);
+                //Todo reflect velocity ?
+                // bounceDir = Vector3.Reflect(collision.rigidbody.velocity, bounceDir.normalized);
+                // collision.rigidbody.velocity = bounceDir * bounceImpulse;
+
+                GameObject _a = Instantiate(_prefabFrag,
+
+                    collision.contacts[0].point,
+                    Quaternion.identity,
+                    _group
+                    );
+
+                _a.GetComponent<Rigidbody>().AddForce(dir * bounceImpulse, ForceMode.Impulse);
+
+
+
             }
 
             //Debug.Log(_missile._damage);

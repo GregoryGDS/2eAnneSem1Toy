@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class blobMissile : MonoBehaviour
 {
@@ -9,13 +10,20 @@ public class blobMissile : MonoBehaviour
     Rigidbody _rb;
     public float _lifeTime = 1f;
     public bool _isDead;
+
+    public CinemachineFreeLook _camLook;
+    public Transform _targetAim;
+
+    private Vector3 _dir;
+
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        //_damage = _rb.mass;
+        //_targetAim = GameObject.FindGameObjectWithTag("aimPoint").transform;
+
         Scale();
-        _rb.AddForce(transform.forward * _speed, ForceMode.Impulse);
+        Fire();
     }
     // Update is called once per frame
     void Update()
@@ -27,18 +35,23 @@ public class blobMissile : MonoBehaviour
         {
             Destruct();
         }
-        
+        //Debug.DrawRay(transform.position, _dir * 500f, Color.yellow);
+
+        _dir = GameManager.Instance._spitAimScript.getDirectionAiming().normalized;
+        //Debug.DrawRay(transform.position, _dir * 500f, Color.blue);
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        /*
+        
         if (collision.gameObject.CompareTag("object"))
         {
             collision.gameObject.GetComponent<Rigidbody>(); // - mass
             Destruct();
         }
-        */
+        
     }
 
     public void Destruct()
@@ -57,4 +70,15 @@ public class blobMissile : MonoBehaviour
             transform.localScale.z * _scalePlayer.z
         );
     }
+
+
+    public void Fire()
+    {
+
+
+        _rb.AddForce(_dir * _speed, ForceMode.Impulse);
+
+
+    }
+
 }

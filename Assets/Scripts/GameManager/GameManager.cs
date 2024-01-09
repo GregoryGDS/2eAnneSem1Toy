@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public VacuumBehavior _vacuumScript;
     public MoveController _moveScript;
     public SwallowBehavior _mouthScript; // SwallowBehavior
+    public SpitAimController _spitAimScript; // SwallowBehavior
 
     void Awake()
     {

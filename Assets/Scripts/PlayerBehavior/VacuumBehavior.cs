@@ -144,7 +144,7 @@ public class VacuumBehavior : MonoBehaviour
         if (_obj != null && _aspirableList.Contains(_obj))
         {
             Debug.Log("in  removeAspirable : check null et contains");
-            _obj._isDestroy = true;//empeche de l'enregistrer à nouveaux dans la liste => fait avant remove et suppression pour être certain
+            //_obj._isDestroy = true;//empeche de l'enregistrer à nouveaux dans la liste => fait avant remove et suppression pour être certain
             _aspirableList.Remove(_obj);
             Debug.Log("contains after remove : " + _aspirableList.Contains(_obj) + "\n _isDestroy : " + _obj._isDestroy);
             _obj.EndAspiration();

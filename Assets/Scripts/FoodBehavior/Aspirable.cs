@@ -18,17 +18,21 @@ public class Aspirable : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _rb = GetComponent<Rigidbody>();
-        if (_agent.enabled)
+        if (_agent && _agent.enabled)
         {
             _rb.isKinematic = false;
         }
         
     }
 
+    public void lossMass(float _l)
+    {
+        _mass -= _l;
+    }
 
     public void StartAspiration()
     {
-        if (_type == FoodType.Runner && _agent.enabled)
+        if (_type == FoodType.Runner && (_agent &&_agent.enabled))
         {
             _agent.enabled = false;
             _rb.isKinematic = true;
@@ -46,7 +50,7 @@ public class Aspirable : MonoBehaviour
 
     public void EndAspiration()
     {
-        if (_type == FoodType.Runner && _agent.enabled)
+        if (_type == FoodType.Runner && (_agent && _agent.enabled))
         {
             _agent.enabled = true;
             _rb.isKinematic = false;
