@@ -47,6 +47,161 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7965516057880310794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Games
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Games
+  Guid:
+    Data1: -1199561125
+    Data2: 1182535982
+    Data3: 247732906
+    Data4: 1747104336
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 187617
+--- !u!114 &-7832070256185364359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Skyscraper
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Skyscraper
+  Guid:
+    Data1: 2008305645
+    Data2: 1253324576
+    Data3: 266419639
+    Data4: 980912208
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 171707
+--- !u!114 &-7028828189368402057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Shot
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Shot
+  Guid:
+    Data1: 1860527639
+    Data2: 1110689142
+    Data3: -1343637630
+    Data4: -2127249393
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 400
+--- !u!114 &-4673758178469166785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Projet_Sounds_2emAnneSem1Toy/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638403932703035678
+  FileSizes:
+  - Name: Desktop
+    Value: 9260768
+  Exists: 1
+--- !u!114 &-4254442439053338766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Restaurant
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Restaurant
+  Guid:
+    Data1: 1112245898
+    Data2: 1245613456
+    Data3: -1512391497
+    Data4: 1614983332
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 170937
+--- !u!114 &-3424249728545999256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objet/FoodRunningAway
+  m_EditorClassIdentifier: 
+  Path: event:/Objet/FoodRunningAway
+  Guid:
+    Data1: 41528621
+    Data2: 1249462851
+    Data3: 724264065
+    Data4: -287375735
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2842370282706038603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +229,107 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2801912461854057506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/SkyscraperAdd
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/SkyscraperAdd
+  Guid:
+    Data1: -312590733
+    Data2: 1216357229
+    Data3: 1625890444
+    Data4: -517460604
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 171707
+--- !u!114 &-2575105685313946881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Shop
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Shop
+  Guid:
+    Data1: -1610839838
+    Data2: 1080351822
+    Data3: -336470628
+    Data4: -605302104
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 130103
+--- !u!114 &-2224991185330992641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Avale
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Avale
+  Guid:
+    Data1: -1938589775
+    Data2: 1129181655
+    Data3: 356885172
+    Data4: -2129603723
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 400
+--- !u!114 &-2194304438394674831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Projet_Sounds_2emAnneSem1Toy/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638403932703055702
+  FileSizes:
+  - Name: Desktop
+    Value: 1434
+  Exists: 1
 --- !u!114 &-1360446125291519648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +350,34 @@ MonoBehaviour:
   - Name: Desktop
     Value: 932
   Exists: 1
+--- !u!114 &-644473254462808334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objet/Fragmentation
+  m_EditorClassIdentifier: 
+  Path: event:/Objet/Fragmentation
+  Guid:
+    Data1: 863508657
+    Data2: 1276456067
+    Data3: -241707358
+    Data4: -1647841308
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8225710032125928870}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,21 +391,83 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -1360446125291519648}
-  - {fileID: -8987997641573609772}
+  - {fileID: -2194304438394674831}
+  - {fileID: -4673758178469166785}
   EditorEvents:
-  - {fileID: 8167938932322384348}
-  - {fileID: -2842370282706038603}
-  - {fileID: 7309416348440619344}
-  - {fileID: -8800949887548031511}
-  - {fileID: 4113989641435348974}
+  - {fileID: -7028828189368402057}
+  - {fileID: -4254442439053338766}
+  - {fileID: 7175287018088740720}
+  - {fileID: 2938700624261973537}
+  - {fileID: -2224991185330992641}
+  - {fileID: -2575105685313946881}
+  - {fileID: -7965516057880310794}
+  - {fileID: -2801912461854057506}
+  - {fileID: -7832070256185364359}
+  - {fileID: -3424249728545999256}
+  - {fileID: -644473254462808334}
+  - {fileID: 8866786640689530393}
+  - {fileID: 1044419259441107732}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -8987997641573609772}
+  - {fileID: -4673758178469166785}
   StringsBanks:
-  - {fileID: -1360446125291519648}
-  cacheTime: 638384352196135346
+  - {fileID: -2194304438394674831}
+  cacheTime: 638403932703055702
   cacheVersion: 131609
+--- !u!114 &1044419259441107732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Objet/Impact
+  m_EditorClassIdentifier: 
+  Path: event:/Objet/Impact
+  Guid:
+    Data1: 2065842148
+    Data2: 1241423312
+    Data3: -1194903925
+    Data4: 1767040176
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 833
+--- !u!114 &2938700624261973537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Aspiration
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Aspiration
+  Guid:
+    Data1: -1529135189
+    Data2: 1140757687
+    Data3: 1421336980
+    Data4: -871919264
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2454
 --- !u!114 &4113989641435348974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +495,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 243
+--- !u!114 &7175287018088740720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/PreShot
+  m_EditorClassIdentifier: 
+  Path: event:/Player/PreShot
+  Guid:
+    Data1: -1784137059
+    Data2: 1245356817
+    Data3: -1210121584
+    Data4: 1473954152
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 873
 --- !u!114 &7309416348440619344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +549,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 284
+--- !u!114 &7985244994989092578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bump/ObjectType
+  m_EditorClassIdentifier: 
+  Name: ObjectType
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 4126909314
+    data2: 1774421959
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Verre
+  - Distributeur
+  - "B\xE2timent"
+  Exists: 1
 --- !u!114 &8167938932322384348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,3 +603,58 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3899
+--- !u!114 &8225710032125928870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Fragmentation/ObjectType
+  m_EditorClassIdentifier: 
+  Name: ObjectType
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 4126909314
+    data2: 1774421959
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Verre
+  - Distributeur
+  - "B\xE2timent"
+  Exists: 1
+--- !u!114 &8866786640689530393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Bump
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Bump
+  Guid:
+    Data1: 1544550833
+    Data2: 1221614236
+    Data3: 920078525
+    Data4: -658126824
+  Banks:
+  - {fileID: -4673758178469166785}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 7985244994989092578}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

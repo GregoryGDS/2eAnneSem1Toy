@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{92b39e75-fc54-4dda-9d09-b5c497250b27}">
+		<property name="assetPath">
+			<value>Ambiance/Restaurant/Fridge2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.0238775510204081</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b5083107-e29a-453d-826f-d43ad1eb2851}</destination>
+		</relationship>
+	</object>
+</objects>

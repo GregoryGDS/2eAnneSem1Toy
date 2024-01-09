@@ -493,8 +493,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: project_sounds/project_sounds.fspro
-  sourceBankPath: project_sounds/Build
+  sourceProjectPath: Projet_Sounds_2emAnneSem1Toy/Projet_Sounds_2emAnneSem1Toy.fspro
+  sourceBankPath: Projet_Sounds_2emAnneSem1Toy/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
