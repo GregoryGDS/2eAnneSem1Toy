@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
-  _speed: 40
+  _speed: 5
   _lifeTime: 5
   _isDead: 0
+  _camLook: {fileID: 0}
+  _targetAim: {fileID: 0}
